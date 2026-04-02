@@ -15,6 +15,10 @@ module.exports = {
   commandPrefix: process.env.COMMAND_PREFIX || "!",
   ownerName: process.env.OWNER_NAME || "Arda Gurbuz",
   ownerNumber,
+  ownerIds: (process.env.OWNER_IDS || "")
+    .split(",")
+    .map((value) => String(value).trim())
+    .filter(Boolean),
   adminNumbers: (process.env.ADMIN_NUMBERS || "")
     .split(",")
     .map((value) => normalizePhone(value))

@@ -361,7 +361,11 @@ async function isBotAdmin(client, chat) {
 }
 
 function isOwner(userId) {
-  return normalizeIdentity(userId) === normalizeIdentity(appConfig.ownerNumber);
+  const rawId = String(userId || "").trim();
+  return (
+    normalizeIdentity(userId) === normalizeIdentity(appConfig.ownerNumber) ||
+    appConfig.ownerIds.includes(rawId)
+  );
 }
 
 function isConfiguredAdmin(userId) {
