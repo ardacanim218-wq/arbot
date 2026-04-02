@@ -1,0 +1,191 @@
+{
+  "restaurants": [
+    {
+      "id": "demo-bistro",
+      "name": "Demo Bistro",
+      "slug": "demo-bistro",
+      "currency": "TRY",
+      "moderatorPin": "1234",
+      "tables": [
+        "M1",
+        "M2",
+        "M3",
+        "Teras-1",
+        "Teras-2"
+      ],
+      "categories": [
+        {
+          "id": "starters",
+          "name": "Baslangiclar"
+        },
+        {
+          "id": "mains",
+          "name": "Ana Yemekler"
+        },
+        {
+          "id": "desserts",
+          "name": "Tatlilar"
+        },
+        {
+          "id": "drinks",
+          "name": "Icecekler"
+        }
+      ],
+      "menuItems": [
+        {
+          "id": "starter-1",
+          "categoryId": "starters",
+          "name": "Citir Tavuk",
+          "description": "Baharatli citir tavuk ve ozel sos",
+          "price": 180,
+          "image": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+          "id": "starter-2",
+          "categoryId": "starters",
+          "name": "Akdeniz Salata",
+          "description": "Roka, beyaz peynir, domates ve zeytin",
+          "price": 145,
+          "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+          "id": "main-1",
+          "categoryId": "mains",
+          "name": "Izgara Kofte",
+          "description": "Patates kizartmasi ve pilav ile",
+          "price": 320,
+          "image": "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+          "id": "main-2",
+          "categoryId": "mains",
+          "name": "Mantarli Makarna",
+          "description": "Kremali sos ve parmesan ile",
+          "price": 260,
+          "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+          "id": "dessert-1",
+          "categoryId": "desserts",
+          "name": "San Sebastian",
+          "description": "Cikolata sos ile servis edilir",
+          "price": 155,
+          "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+          "id": "drink-1",
+          "categoryId": "drinks",
+          "name": "Limonata",
+          "description": "Taze nane ile ev yapimi",
+          "price": 85,
+          "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=80"
+        },
+        {
+          "id": "drink-2",
+          "categoryId": "drinks",
+          "name": "Soguk Kahve",
+          "description": "Buzlu ve sutlu",
+          "price": 110,
+          "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=900&q=80"
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-1775150821825",
+      "orderNumber": "SIP-0004",
+      "restaurantId": "demo-bistro",
+      "restaurantSlug": "demo-bistro",
+      "restaurantName": "Demo Bistro",
+      "table": "M2",
+      "customerNote": "hızlı gelsin",
+      "items": [
+        {
+          "id": "dessert-1",
+          "name": "San Sebastian",
+          "unitPrice": 155,
+          "quantity": 1,
+          "note": "sdfdfds"
+        }
+      ],
+      "total": 155,
+      "status": "Serviste",
+      "createdAt": "2026-04-02T17:27:01.825Z",
+      "updatedAt": "2026-04-02T17:27:54.085Z"
+    },
+    {
+      "id": "order-1775150355398",
+      "orderNumber": "SIP-0003",
+      "restaurantId": "demo-bistro",
+      "restaurantSlug": "demo-bistro",
+      "restaurantName": "Demo Bistro",
+      "table": "M1",
+      "customerNote": "sanane",
+      "items": [
+        {
+          "id": "starter-2",
+          "name": "Akdeniz Salata",
+          "unitPrice": 145,
+          "quantity": 1,
+          "note": "acili olsun"
+        }
+      ],
+      "total": 145,
+      "status": "Hazirlaniyor",
+      "createdAt": "2026-04-02T17:19:15.399Z",
+      "updatedAt": "2026-04-02T17:23:34.749Z"
+    },
+    {
+      "id": "order-1775150206892",
+      "orderNumber": "SIP-0002",
+      "restaurantId": "demo-bistro",
+      "restaurantSlug": "demo-bistro",
+      "restaurantName": "Demo Bistro",
+      "table": "M1",
+      "customerNote": "öyle böyle",
+      "items": [
+        {
+          "id": "starter-2",
+          "name": "Akdeniz Salata",
+          "unitPrice": 145,
+          "quantity": 1,
+          "note": "acili olsun"
+        }
+      ],
+      "total": 145,
+      "status": "Serviste",
+      "createdAt": "2026-04-02T17:16:46.892Z",
+      "updatedAt": "2026-04-02T17:23:30.610Z"
+    },
+    {
+      "id": "order-1775149485068",
+      "orderNumber": "SIP-0001",
+      "restaurantId": "demo-bistro",
+      "restaurantSlug": "demo-bistro",
+      "restaurantName": "Demo Bistro",
+      "table": "M2",
+      "customerNote": "Bir urun daha sicak olsun",
+      "items": [
+        {
+          "id": "main-1",
+          "name": "Izgara Kofte",
+          "unitPrice": 320,
+          "quantity": 2,
+          "note": "Az tuzlu"
+        },
+        {
+          "id": "drink-1",
+          "name": "Limonata",
+          "unitPrice": 85,
+          "quantity": 1,
+          "note": ""
+        }
+      ],
+      "total": 725,
+      "status": "Serviste",
+      "createdAt": "2026-04-02T17:04:45.069Z",
+      "updatedAt": "2026-04-02T17:23:19.395Z"
+    }
+  ]
+}

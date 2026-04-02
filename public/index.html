@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Menu</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">QR menu ve mobil siparis</p>
+          <h1 id="restaurant-name">Restoran yukleniyor...</h1>
+          <p id="restaurant-subtitle" class="muted">
+            Masanizdan menuyu inceleyin, sepeti olusturun ve siparisinizi gonderin.
+          </p>
+        </div>
+        <div class="table-badge">
+          <span>Masa</span>
+          <strong id="table-label">-</strong>
+        </div>
+      </header>
+
+      <main class="customer-layout">
+        <section class="menu-panel">
+          <div id="category-tabs" class="tabs"></div>
+          <div id="menu-grid" class="menu-grid"></div>
+        </section>
+
+        <aside class="cart-panel">
+          <div class="panel-header">
+            <h2>Sepet</h2>
+            <span id="cart-count" class="pill">0 urun</span>
+          </div>
+
+          <div id="cart-items" class="cart-items empty-state">
+            Sepetiniz simdilik bos.
+          </div>
+
+          <label class="field">
+            <span>Masa secimi</span>
+            <select id="table-select"></select>
+          </label>
+
+          <label class="field">
+            <span>Genel not</span>
+            <textarea
+              id="customer-note"
+              rows="3"
+              placeholder="Ornek: Bir urun sogansiz olsun"
+            ></textarea>
+          </label>
+
+          <div class="summary-row">
+            <span>Toplam</span>
+            <strong id="cart-total">0 TRY</strong>
+          </div>
+
+          <button id="submit-order" class="primary-btn">Siparisi Gonder</button>
+          <p id="order-feedback" class="feedback"></p>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moderator Paneli</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell moderator-shell">
+      <header class="hero moderator-hero">
+        <div>
+          <p class="eyebrow">Moderator paneli</p>
+          <h1>Siparis yonetimi</h1>
+          <p class="muted">
+            Garson veya kasa ekibi buradan gelen siparisleri gorur ve durumunu gunceller.
+          </p>
+        </div>
+      </header>
+
+      <main class="moderator-layout">
+        <section class="login-card">
+          <h2>Giris</h2>
+          <label class="field">
+            <span>Restoran</span>
+            <select id="restaurant-select"></select>
+          </label>
+          <label class="field">
+            <span>Moderator PIN</span>
+            <input id="moderator-pin" type="password" placeholder="Ornek: 1234" />
+          </label>
+          <button id="login-btn" class="primary-btn">Panele Gir</button>
+          <p class="helper-text">
+            Demo giris: <strong>Demo Bistro</strong> / PIN <strong>1234</strong>
+          </p>
+          <p id="login-feedback" class="feedback"></p>
+        </section>
+
+        <section class="dashboard-card">
+          <div class="panel-header">
+            <h2 id="dashboard-title">Aktif siparisler</h2>
+            <span id="live-indicator" class="pill neutral">Bagli degil</span>
+          </div>
+
+          <div id="qr-links" class="qr-links"></div>
+          <div id="orders-list" class="orders-list empty-state">
+            Panele giris yaptiginizda siparisler burada listelenir.
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/moderator.js"></script>
+  </body>
+</html>
