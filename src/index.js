@@ -13,8 +13,11 @@ const runtimeState = {
   qrValue: "",
   authenticated: false,
   ready: false,
-  lastError: ""
+  lastError: "",
+  lastMessage: null
 };
+
+const processedMessages = new Set();
 
 const healthServer = http.createServer(async (req, res) => {
   if (req.url === "/qr") {
@@ -152,6 +155,50 @@ async function restartClient() {
   }, 1000);
 }
 
+async function processMessageEvent(message, eventName) {
+  if (message.fromMe) {
+    return;
+  }
+
+  const messageId = message.id?._serialized || `${eventName}:${message.from}:${message.timestamp}`;
+  if (processedMessages.has(messageId)) {
+    return;
+  }
+
+  processedMessages.add(messageId);
+  setTimeout(() => processedMessages.delete(messageId), 5 * 60 * 1000);
+
+  try {
+    const chat = await message.getChat();
+    runtimeState.lastMessage = {
+      event: eventName,
+      from: message.from,
+      author: message.author || "",
+      body: String(message.body || "").slice(0, 200),
+      isGroup: Boolean(chat.isGroup),
+      chatName: chat.name || "",
+      receivedAt: new Date().toISOString()
+    };
+
+    console.log(
+      `[incoming:${eventName}] from=${message.from} author=${message.author || "-"} group=${
+        chat.isGroup ? "yes" : "no"
+      } body=${JSON.stringify(String(message.body || "").slice(0, 120))}`
+    );
+
+    state.refresh();
+    await handleIncomingMessage(client, message, state, { restartClient });
+  } catch (error) {
+    console.error("Mesaj islenemedi:", error);
+    runtimeState.lastError = error.message;
+    try {
+      await message.reply("Komut islenirken bir hata olustu.");
+    } catch (_replyError) {
+      console.error("Hata mesaji da gonderilemedi.");
+    }
+  }
+}
+
 client.on("qr", (qr) => {
   console.log("WhatsApp baglantisi icin QR kodu okutun:");
   qrcode.generate(qr, { small: true });
@@ -199,22 +246,11 @@ client.on("disconnected", (reason) => {
 });
 
 client.on("message", async (message) => {
-  if (message.fromMe) {
-    return;
-  }
+  await processMessageEvent(message, "message");
+});
 
-  try {
-    state.refresh();
-    await handleIncomingMessage(client, message, state, { restartClient });
-  } catch (error) {
-    console.error("Mesaj islenemedi:", error);
-    runtimeState.lastError = error.message;
-    try {
-      await message.reply("Komut islenirken bir hata olustu.");
-    } catch (_replyError) {
-      console.error("Hata mesaji da gonderilemedi.");
-    }
-  }
+client.on("message_create", async (message) => {
+  await processMessageEvent(message, "message_create");
 });
 
 client.initialize().catch((error) => {
