@@ -10,6 +10,7 @@ function normalizePhone(value) {
 const ownerNumber = normalizePhone(process.env.OWNER_NUMBER || "905319678514");
 
 module.exports = {
+  port: Number(process.env.PORT || 3000),
   botName: process.env.BOT_NAME || "ArBot",
   commandPrefix: process.env.COMMAND_PREFIX || "!",
   ownerName: process.env.OWNER_NAME || "Arda Gurbuz",
