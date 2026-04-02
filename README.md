@@ -76,3 +76,28 @@ ALLOWED_GROUP_NAMES=Osmaniye 2. El Alim Satim
 ## 7/24 Calisma
 
 Bilgisayarin kapaliyken de botun calismasi icin projeyi bir VPS'e tasiman gerekir. Hazir sunucu kurulumu icin [DEPLOY_VPS.md](C:/Users/cenne/OneDrive/Belgeler/New%20project/DEPLOY_VPS.md) dosyasini kullanabilirsin.
+
+## GitHub ve Northflank
+
+Northflank uzerinde deploy etmek icin proje bir GitHub reposunda olmali. `.env` dosyasi git'e dahil edilmez; panelde environment variable olarak girilmelidir.
+
+Northflank icin gerekli dosyalar:
+
+- [Dockerfile](C:/Users/cenne/OneDrive/Belgeler/New%20project/Dockerfile)
+- [.dockerignore](C:/Users/cenne/OneDrive/Belgeler/New%20project/.dockerignore)
+
+Northflank'ta deploy ederken:
+
+- Build kaynagi olarak GitHub repo sec
+- Dockerfile ile build al
+- Start komutu gerekmez, Dockerfile kullanilir
+- Persistent volume ekle
+
+Onerilen environment variable'lar:
+
+- `BOT_NAME=ArBot`
+- `COMMAND_PREFIX=!`
+- `OWNER_NAME=Arda Gurbuz`
+- `OWNER_NUMBER=43753553281268`
+- `PRIVATE_AUTO_REPLY=true`
+- `ALLOWED_GROUP_IDS=120363426991539717@g.us,120363403922048313@g.us`
